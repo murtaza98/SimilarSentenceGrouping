@@ -5,7 +5,7 @@
 create virtual env then install the modules in requirements.txt file
 `pip install requirements.txt`
 
-Download Bert-Base Uncased model, a pretrained Bert model from [here](https://github.com/hanxiao/bert-as-service#1-download-a-pre-trained-bert-model)
+Download Bert-Base Uncased model, a pretrained Bert model from [here](https://github.com/hanxiao/bert-as-service#1-download-a-pre-trained-bert-model) and paste it in models folder.
 
 ### Usage
 
