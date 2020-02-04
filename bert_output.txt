@@ -1,0 +1,105 @@
+fees for college
+documents are required for admission
+0.7132464647293091
+
+
+fees for college
+college timings
+0.7321455478668213
+
+
+fees for college
+college fees
+0.8419452905654907
+
+
+fees for college
+much fees is to be paid for admission
+0.7788257598876953
+
+
+fees for college
+courses are offered by college
+0.7095648050308228
+
+
+fees for college
+courses does the college provide
+0.7260848879814148
+
+
+documents are required for admission
+college timings
+0.654229998588562
+
+
+documents are required for admission
+college fees
+0.6754317879676819
+
+
+documents are required for admission
+much fees is to be paid for admission
+0.806331217288971
+
+
+documents are required for admission
+courses are offered by college
+0.7088423371315002
+
+
+documents are required for admission
+courses does the college provide
+0.6983214020729065
+
+
+college timings
+college fees
+0.71454918384552
+
+
+college timings
+much fees is to be paid for admission
+0.6720818877220154
+
+
+college timings
+courses are offered by college
+0.6039202809333801
+
+
+college timings
+courses does the college provide
+0.6705101132392883
+
+
+college fees
+much fees is to be paid for admission
+0.6793941259384155
+
+
+college fees
+courses are offered by college
+0.6404645442962646
+
+
+college fees
+courses does the college provide
+0.6210812330245972
+
+
+much fees is to be paid for admission
+courses are offered by college
+0.691210925579071
+
+
+much fees is to be paid for admission
+courses does the college provide
+0.7420591711997986
+
+
+courses are offered by college
+courses does the college provide
+0.833203911781311
+
+
