@@ -4,6 +4,7 @@ bert-serving-client==1.10.0
 bert-serving-server==1.10.0
 Click==7.0
 Flask==1.1.1
+Flask-Cors==3.0.8
 gast==0.2.2
 google-pasta==0.1.8
 GPUtil==1.4.0
