@@ -1,8 +1,6 @@
 from flask import Flask, request, jsonify
 import json
 from grouping import *
-
-=======
 from flask_cors import CORS
 
 
@@ -18,10 +16,10 @@ CORS(app)
 # @cross_origin(origin='*',supports_credentials=True,headers=['Content- Type','Authorization'])
 def rankings():
     # data = json.dumps(request.json)
-    # data = request.get_json(force=True)
-    # print(data)
+    # data = request.get_json()
+    # # print(data)
     # questions = request.json['questions']
-    # print(request.form)
+    # groups = group_questions(questions)
     questions = request.form.getlist('questions[]')
     groups = group_questions(questions)
     response = jsonify(groups)

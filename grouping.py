@@ -10,9 +10,16 @@ from scipy import spatial
 from bert_serving.client import BertClient
 from pprint import pprint
 import json
+from nltk.corpus import stopwords 
+from nltk.tokenize import word_tokenize
 
 bc = BertClient()
 
+# setup stopwords stopwords.words('english')
+stop_words = set() 
+# add extra question words to list as well
+question_words = ['what', 'why', 'how', 'when', 'where', 'which', 'who', 'whom', 'whose', 'will', 'is']
+stop_words.update(question_words)
 
 def MyDBSCAN(D, eps, MinPts):
     """
@@ -161,7 +168,8 @@ def calc_dist(vec1, vec2):
 
 
 def group_questions(questions):
-    D = bc.encode(questions)
+    filtered_questions, ques_map = remove_stopwords_n_question_words(questions)
+    D = bc.encode(filtered_questions)
     labels = MyDBSCAN(D, float(0.80), 2)
 
     # print(labels)
@@ -171,37 +179,52 @@ def group_questions(questions):
 
     for i in range(len(labels)):
         if labels[i] == -1:
-            groups[f'group{ctr}'] = [questions[i]]
+            groups[f'group{ctr}'] = [ques_map[filtered_questions[i]]]
             ctr += 1
         elif f'group{labels[i]}' in groups:
-            groups[f'group{labels[i]}'].append(questions[i])
+            groups[f'group{labels[i]}'].append(ques_map[filtered_questions[i]])
         else:
-            groups[f'group{labels[i]}'] = [questions[i]]
+            groups[f'group{labels[i]}'] = [ques_map[filtered_questions[i]]]
 
     # pprint(groups)
     groups_json = json.dumps(groups)
     return groups_json
 
 
+def remove_stopwords_n_question_words(questions):
+    filtered_questions = []
+    ques_map = dict()
+    for question in questions:
+        word_tokens = word_tokenize(question) 
+        filtered_question = [w for w in word_tokens if not w in stop_words]
+        filtered_questions.append(' '.join(filtered_question))
+        ques_map[' '.join(filtered_question)] = question
+    # print('---------')
+    # print(ques_map)
+    return filtered_questions, ques_map
+
+
+
 def test():
-    questions = ["fees for college",
-                 "documents are required for admission",
-                 "college timings",
-                 "college fees",
-                 "much fees is to be paid for admission",
-                 "courses are offered by college",
-                 "courses does the college provide",
+    questions = ["what is fees for college",
+                 "what documents are required for admission",
+                 "what is college timings",
+                 "what is college fees",
+                 "How much fees is to be paid for admission",
+                 "What courses are offered by college",
+                 "What courses does the college provide",
                  "what are the documents required for admission through Minority Quota",
-                 "admission procedure for computer engineering",
-                 "admission procedure for mechanical engineering",
-                 "admission procedure for electrical engineering",
-                 "documents are required for obc",
-                 "timing for office",
-                 "can I apply as NRI",
-                 "will be the charge for application form",
-                 "time is it open today"
+                 "what is admission procedure for computer engineering",
+                 "what is admission procedure for mechanical engineering",
+                 "what is admission procedure for electrical engineering",
+                 "what documents are required for obc",
+                 "what timing for office",
+                 "How can I apply as NRI",
+                 "what will be the charge for application form",
+                 "what time is it open today"
                  ]
-    print(group_questions(questions))
+    # questions = remove_stopwords_n_question_words(questions)
+    # print(group_questions(questions))
 
 
 # test()

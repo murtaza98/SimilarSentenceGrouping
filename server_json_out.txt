@@ -1,1 +1,38 @@
 {"group1": ["fees for college", "college fees"], "group2": ["documents are required for admission", "much fees is to be paid for admission", "what are the documents required for admission through Minority Quota", "documents are required for obc", "can I apply as NRI", "will be the charge for application form"], "group5": ["college timings"], "group3": ["courses are offered by college", "courses does the college provide"], "group4": ["admission procedure for computer engineering", "admission procedure for mechanical engineering", "admission procedure for electrical engineering"], "group6": ["timing for office"], "group7": ["time is it open today"]}
+
+
+// output after removing question words
+{
+  "group1": [
+    "what is fees for college",
+    "what is college fees"
+  ],
+  "group2": [
+    "what documents are required for admission",
+    "what are the documents required for admission through Minority Quota",
+    "what documents are required for obc",
+    "How can I apply as NRI",
+    "what will be the charge for application form"
+  ],
+  "group5": [
+    "what is college timings"
+  ],
+  "group6": [
+    "How much fees is to be paid for admission"
+  ],
+  "group3": [
+    "What courses are offered by college",
+    "What courses does the college provide"
+  ],
+  "group4": [
+    "what is admission procedure for computer engineering",
+    "what is admission procedure for mechanical engineering",
+    "what is admission procedure for electrical engineering"
+  ],
+  "group7": [
+    "what timing for office"
+  ],
+  "group8": [
+    "what time is it open today"
+  ]
+}
