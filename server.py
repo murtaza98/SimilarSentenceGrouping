@@ -1,3 +1,5 @@
+#!/home/murtaza/PycharmProjects/SentenceSimilarity/venv/bin/python
+
 from flask import Flask, request, jsonify
 import json
 from grouping import *
